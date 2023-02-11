@@ -1,0 +1,12 @@
+.form__input {
+    width: 358px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media screen and (max-width: 450px) {
+    .form__input {
+        width: 238px;
+    }
+}
