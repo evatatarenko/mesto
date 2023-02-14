@@ -14,13 +14,13 @@
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" src="images/kusto.jpg">
+            <img class="profile__avatar" src="images/kusto.jpg" alt="Фото профиля">
             <div class="profile__info">
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__edit-button popup-link"></button>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <div class="profile__add-button"></div>
+            <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
             <div class="element">
@@ -72,19 +72,21 @@
         </footer>
     </main>
     <div class="popup">
-        <div class="popup__container"></div>
-        <button class="popup__close-btn"></button>
-        <div class="popup__content">
-            <p class="popup__title">Редактировать профиль</p>
-            <form class="form">
-                <div class="form__input">
-                    <input class="form__text form__text_type_name" type="text" placeholder="Имя">
-                    <input class="form__text form__text_type_job" type="text" placeholder="Профессия">
-                </div>
-                <button class="form__submit-btn">Сохранить</button>
-            </form>
+        <div class="popup__container">
+            <button class="popup__close-btn" type="button"></button>
+            <div class="popup__content">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="form" name="info-edit">
+                    <div class="form__input">
+                        <input class="form__text form__text_type_name" type="text" placeholder="Имя">
+                        <input class="form__text form__text_type_job" type="text" placeholder="Профессия">
+                    </div>
+                    <button type="button" class="form__submit-btn">Сохранить</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="scripts/index.js"></script>
 </body>
+
 </html>

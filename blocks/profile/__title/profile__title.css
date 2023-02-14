@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: content-box;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 420px) {

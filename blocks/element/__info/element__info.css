@@ -1,7 +1,8 @@
-.element__info{
+.element__info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 21px 15px 28px 21px;
+    width: 244px;
 }
