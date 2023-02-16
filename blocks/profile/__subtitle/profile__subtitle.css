@@ -4,8 +4,9 @@
     font-weight: 400;
     color: #fff;
     margin: 0;
-    width: 336;
     white-space: nowrap;
+    overflow: hidden;
+    max-width: 336px;
 }
 
 @media screen and (max-width: 402px) {
@@ -13,5 +14,6 @@
         align-self: center;
         font-size: 14px;
         margin-right: 23px;
+        max-width: 190px;
     }
 }

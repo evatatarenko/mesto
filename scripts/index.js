@@ -8,7 +8,6 @@ let profileTitle = document.querySelector('.profile__title');
 let profileSubtitle = document.querySelector('.profile__subtitle');
 
 openPopupBtn.addEventListener('click', function (e) {
-  e.preventDefault();
   popup.classList.add('popup_opened');
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
