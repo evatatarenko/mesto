@@ -3,9 +3,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 18px;
+    column-gap: 19px;
     max-width: 336px;
-    row-gap: 16px;
+    row-gap: 10px;
     align-self: center;
 }
 

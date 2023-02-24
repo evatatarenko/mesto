@@ -15,5 +15,6 @@
     .footer__copyright {
         font-size: 14px;
         font-weight: 400;
+        margin-left: 0;
     }
 }
