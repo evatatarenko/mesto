@@ -1,4 +1,6 @@
 .element__img {
     height: 282px;
     aspect-ratio: 1/1;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
 }

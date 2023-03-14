@@ -1,0 +1,5 @@
+.newcard__container{
+    position: relative;
+    align-items: flex-end;
+    display: flex;
+}

@@ -2,4 +2,7 @@
     max-width: 282px;
     background-color: #FFF;
     border-radius: 5%;
+    list-style-type: none;
+    position:relative;
 }
+

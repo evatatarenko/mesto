@@ -1,0 +1,15 @@
+.element__remove-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 19px;
+    background-image: url("../../../images/Trash-button.svg");
+    z-index: 2;
+   border: none;
+   background-color: transparent;
+  }
+  
+  .element__remove-btm:hover {
+    opacity: 0.6;
+  }
