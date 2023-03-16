@@ -6,8 +6,9 @@
     height: 19px;
     background-image: url("../../../images/Trash-button.svg");
     z-index: 0;
-   border: none;
-   background-color: transparent;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
   }
   
   .element__remove-btm:hover {
