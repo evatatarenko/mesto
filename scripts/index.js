@@ -50,7 +50,6 @@ function newCardSubmit(evt) {
   evt.preventDefault();
   closeNewcard()
 }
-//\\
 
 const initialCards = [
   {
@@ -95,6 +94,14 @@ initialCards.forEach((element) => {
   cardImg.src = element.link;
   cardImg.alt = element.name;
  
+  cardImg.addEventListener('click', function (){
+    const popupImage = document.querySelector('.image-popup');
+    popupImage.classList.add('image-popup_opened');
+    popupImage.querySelector('.image-popup__image').src = element.link;
+    popupImage.querySelector('.image-popup__caption').textContent = element.name;
+    console.log(element.name);
+  }); 
+
   const likeButton  = newCard.querySelector('.element__like');
   likeButton.addEventListener('click',() => {
       likeButton.classList.toggle('element__like_active');
@@ -105,6 +112,7 @@ initialCards.forEach((element) => {
     evt.target.closest('.element').remove();
     });
 
+  
   cardContainer.append(newCard);
 });
 };
@@ -112,11 +120,15 @@ initialCards.forEach((element) => {
 
 const form = document.querySelector('.card-form');
 
+// arr = ["image 1", "image 2"]
+// arr.push("image 3")
+// arr.unshift("image 4")
+
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const name = form.querySelector('.card-form__text_type_title');
   const link = form.querySelector('.card-form__text_type_link');
-  initialCards.push( {
+  initialCards.unshift({
     name: name.value,
     link: link.value
   })
@@ -132,10 +144,18 @@ drawInitialCards();
 
 function openImagePopup(image) {
 const popupImage = document.querySelector('.image-popup');
-popupImage.src=image;
 popupImage.classList.add('.image-popup_opened');
+popupImage.src = image;
 };
 
-const elemImg = document.querySelector('.element__img');
 
-elemImg.addEventListener('click', openImagePopup);
+
+// elemImg.addEventListener('click', console.log);
+
+// function log(param1, param2)
+
+// https://developer.mozilla.org/
+// chrome
+// ... function addEventListener(eventType, eventFunction)
+// if (eventType == "click") eventFunction(event)
+
