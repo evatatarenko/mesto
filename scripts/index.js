@@ -120,10 +120,6 @@ initialCards.forEach((element) => {
 
 const form = document.querySelector('.card-form');
 
-// arr = ["image 1", "image 2"]
-// arr.push("image 3")
-// arr.unshift("image 4")
-
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const name = form.querySelector('.card-form__text_type_title');
@@ -140,22 +136,11 @@ form.addEventListener('submit', (evt) => {
 
 drawInitialCards();
 
-//image popup\\
+const imageCloseBtn = document.querySelector('.image-popup__close-btn');
 
-function openImagePopup(image) {
-const popupImage = document.querySelector('.image-popup');
-popupImage.classList.add('.image-popup_opened');
-popupImage.src = image;
-};
+function imagePopupClose () {
+  const popupImage = document.querySelector('.image-popup');
+  popupImage.classList.remove('image-popup_opened');
+}
 
-
-
-// elemImg.addEventListener('click', console.log);
-
-// function log(param1, param2)
-
-// https://developer.mozilla.org/
-// chrome
-// ... function addEventListener(eventType, eventFunction)
-// if (eventType == "click") eventFunction(event)
-
+imageCloseBtn.addEventListener('click', imagePopupClose);
