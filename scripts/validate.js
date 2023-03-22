@@ -25,7 +25,6 @@ const hideInputError = (formElement, inputElement, options) => {
 
 const checkInputValidity = (formElement, inputElement, options) => {
     if (!inputElement.validity.valid) {
-        console.log("das")
         showInputError(formElement, inputElement, inputElement.validationMessage, options);
     } else {
         hideInputError(formElement, inputElement, options);
@@ -42,8 +41,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement, options) => {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(options.inactiveButtonClass);
+        buttonElement.disabled = true
     } else {
         buttonElement.classList.remove(options.inactiveButtonClass);
+        buttonElement.disabled = false
     };
 };
 
@@ -62,13 +63,9 @@ const setEventListeners = (formElement, options) => {
 const enableValidation = options => {
     const formList = Array.from(document.querySelectorAll(options.formSelector));
     formList.forEach((formElement) => {
-        formElement.addEventListener('submit', function (evt) {
-            evt.preventDefault();
-        });
         setEventListeners(formElement, options);
     });
 };
 
 
 enableValidation(validationParameters);
-

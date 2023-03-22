@@ -9,8 +9,9 @@
     border: none;
     background-color: transparent;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
   
-  .element__remove-btm:hover {
+  .element__remove-btn:hover {
     opacity: 0.6;
   }
