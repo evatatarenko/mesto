@@ -26,9 +26,12 @@ const linkForm = document.querySelector('.form__text_type_link');
 const fullImage = popupImage.querySelector('.image-popup__image')
 const fullImageCaption = popupImage.querySelector('.image-popup__caption')
 
+const popupAll = document.querySelectorAll('.popup');
+
 //open popup\\
 
 const openPopup = popup => {
+  document.addEventListener('keydown', handleKeyDown);
   popup.classList.add('popup_opened');
 }
 
@@ -154,3 +157,19 @@ const initialData = () => initialCards.forEach(elem => genElements(cardContainer
 
 initialData();
 
+const handleKeyDown = evt => {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+
+const closePopupOverlay = evt => {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  }
+}
+
+
+
+popupAll.forEach(popup => popup.addEventListener('click', closePopupOverlay));

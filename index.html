@@ -33,11 +33,25 @@
             <button class="popup__close-btn" type="button" id="edit-cls-btn"></button>
             <div class="popup__content">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="form" name="info-edit" >
+                <form class="form" name="info-edit"  method="post"  novalidate>
                     <div class="form__info">
-                        <input class="form__text form__text_type_name" type="text" placeholder="Имя">
-                        <input class="form__text form__text_type_job" type="text" placeholder="Профессия">
+                        <input class="form__text form__text_type_name" type="text" placeholder="Имя" 
+                        type="text"
+                        id="profile-name" 
+                        minlength="2"
+                        maxlength="40"
+                        required>
+                        <span class="form__input-error profile-name-error"></span>
+                        <input class="form__text form__text_type_job" type="text" placeholder="Профессия" 
+                        type="text" 
+                        id="job-input"  
+                        name="job-input" 
+                        minlength="2"
+                        maxlength="200"
+                        required>
+                        <span class="form__input-error job-input-error"></span>
                     </div>
+                    
                     <button type="submit" class="form__submit-btn">Сохранить</button>
                 </form>
             </div>
@@ -48,11 +62,14 @@
             <button class="popup__close-btn" type="button" id="newcard-cls-btn"></button>
             <div class="popup__content">
                 <h2 class="popup__title">Новое место</h2>
-                <form class="form" name="info-add" id="addform">
+                <form class="form" name="info-add" id="addform" method="post"  novalidate>
                     <div class="form__info">
-                        <input class="form__text form__text_type_title"  type="text" placeholder="Название">
-                        <input class="form__text form__text_type_link" type="link"
-                            placeholder="Ссылка на картинку">
+                        <input class="form__text form__text_type_title" minlength="2"
+                        maxlength="30" id="title-input"  type="text" placeholder="Название" required>
+                        <span class="form__input-error title-input-error"></span>
+                        <input class="form__text form__text_type_link" id="link-input" type="url"
+                            placeholder="Ссылка на картинку" required>
+                        <span class="form__input-error link-input-error"></span>
                     </div>
                     <button type="submit" class="form__submit-btn">Создать</button>
                 </form>
@@ -78,6 +95,7 @@
     </template>
 
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
 </body>
 
 </html>
