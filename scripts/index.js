@@ -1,3 +1,6 @@
+import Card from './card.js';
+import FormValidator from "./validator.js";
+
 const editPopup = document.querySelector('.edit-popup');
 const newcardPopup = document.querySelector('.newcard');
 
@@ -27,6 +30,8 @@ const fullImage = popupImage.querySelector('.image-popup__image')
 const fullImageCaption = popupImage.querySelector('.image-popup__caption')
 
 const popupArray = document.querySelectorAll('.popup');
+
+
 
 
 //open popup\\
@@ -92,52 +97,23 @@ const openPlaceImagePopup = (place) => {
   openPopup(popupImage);
 }
 
-//лайк\\
-const likeCard = event => event.target.classList.toggle('element__like_active');
-
-
-//удаление карточек\\
-const removeCard = event => event.target.closest('.element').remove();
-
 
 formNewCard.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  const newCard = createCard({
+  
+  new Card({
     name: inputTitleNewCard.value,
     link: inputLinkNewCard.value
-  })
-  cardContainer.prepend(newCard)
+   }, cardContainer, null, '#element').generateCard()
   const openedPopup = evt.target.closest('.popup_opened');
   closePopup(openedPopup);
   evt.target.reset()
   const button = evt.target.querySelector(".form__submit-btn")
   button.disabled = true
   button.classList.add("form__submit-btn_inactive");
+
+
 });
-
-function createCard(place) {
-  const newCard = template.content.cloneNode(true);
-  const img = newCard.querySelector('.element__img');
-  img.alt = place.name;
-  img.src = place.link;
-  const title = newCard.querySelector('.element__title');
-  title.innerText = place.name;
-  const like = newCard.querySelector('.element__like');
-  like.addEventListener('click', likeCard);
-  const remove = newCard.querySelector('.element__remove-btn');
-  remove.addEventListener('click', removeCard);
-  img.addEventListener('click', function () {
-    openPlaceImagePopup(place);
-  });
-
-  return newCard;
-}
-
-const genElements = (wrap, elem) => wrap.prepend(createCard(elem));
-
-const initialData = () => initialCards.forEach(elem => genElements(cardContainer, elem));
-
-initialData();
 
 const handleKeyDown = evt => {
   if (evt.key === 'Escape') {
@@ -155,3 +131,31 @@ const closePopupOverlay = evt => {
 
 
 popupArray.forEach(popup => popup.addEventListener('mousedown', closePopupOverlay));
+
+
+
+const initialData = () => initialCards.forEach(elem => new Card(elem, cardContainer, null, '#element').generateCard());
+initialData()
+
+
+
+const validationParameters = {
+    formSelector: '.form',
+    inputSelector: '.form__text',
+    submitButtonSelector: '.form__submit-btn',
+    inactiveButtonClass: 'form__submit-btn_inactive',
+    inputErrorClass: 'form__text_type_error',
+    errorClass: 'form__input-error_active'
+}
+
+const enableValidation = options => {
+  const formList = Array.from(document.querySelectorAll(options.formSelector));
+  formList.forEach((formElement) => {
+      new FormValidator(validationParameters, formElement)._setEventListeners();
+  });
+};
+
+
+enableValidation(validationParameters);
+
+
