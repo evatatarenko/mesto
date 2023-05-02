@@ -12,6 +12,14 @@ export default class FormValidator {
         this._setEventListeners();
     }
 
+    resetValidation() {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
+            this._hideError(inputElement)
+        });
+        this._submitBtn.disabled = true;
+    }
+
     _hasInvalidInput() {
         return this._inputList.some((inputElement) => !inputElement.validity.valid);
     }

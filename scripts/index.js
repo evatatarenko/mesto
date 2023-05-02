@@ -97,22 +97,28 @@ const openPlaceImagePopup = (place) => {
   openPopup(popupImage);
 }
 
+const createCard = (data, handleCardClick, templateSelector) => {
+  return new Card(data, handleCardClick, templateSelector);
+}
+
 
 formNewCard.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  
-  new Card({
+
+  const card = createCard({
     name: inputTitleNewCard.value,
     link: inputLinkNewCard.value
-   }, cardContainer, null, '#element').generateCard()
+  }, openPlaceImagePopup, '#element');
+
+  const cardEl = card.generateCard();
+  cardContainer.prepend(cardEl)
+
   const openedPopup = evt.target.closest('.popup_opened');
   closePopup(openedPopup);
+
   evt.target.reset()
   const button = evt.target.querySelector(".form__submit-btn")
-  button.disabled = true
   button.classList.add("form__submit-btn_inactive");
-
-
 });
 
 const handleKeyDown = evt => {
@@ -134,24 +140,30 @@ popupArray.forEach(popup => popup.addEventListener('mousedown', closePopupOverla
 
 
 
-const initialData = () => initialCards.forEach(elem => new Card(elem, cardContainer, null, '#element').generateCard());
+const initialData = () => {
+  initialCards.forEach(elem => {
+    const card = createCard(elem, openPlaceImagePopup, '#element').generateCard();
+    console.log(card)
+    cardContainer.prepend(card);
+  })
+};
 initialData()
 
 
 
 const validationParameters = {
-    formSelector: '.form',
-    inputSelector: '.form__text',
-    submitButtonSelector: '.form__submit-btn',
-    inactiveButtonClass: 'form__submit-btn_inactive',
-    inputErrorClass: 'form__text_type_error',
-    errorClass: 'form__input-error_active'
+  formSelector: '.form',
+  inputSelector: '.form__text',
+  submitButtonSelector: '.form__submit-btn',
+  inactiveButtonClass: 'form__submit-btn_inactive',
+  inputErrorClass: 'form__text_type_error',
+  errorClass: 'form__input-error_active'
 }
 
 const enableValidation = options => {
   const formList = Array.from(document.querySelectorAll(options.formSelector));
   formList.forEach((formElement) => {
-      new FormValidator(validationParameters, formElement)._setEventListeners();
+    new FormValidator(validationParameters, formElement).enableValidation();
   });
 };
 
