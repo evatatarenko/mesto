@@ -118,7 +118,6 @@ formNewCard.addEventListener('submit', (evt) => {
 
   evt.target.reset()
   const button = evt.target.querySelector(".form__submit-btn")
-  button.classList.add("form__submit-btn_inactive");
 });
 
 const handleKeyDown = evt => {

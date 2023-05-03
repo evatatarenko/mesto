@@ -6,7 +6,7 @@
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 336px;
+    width: 336px;
     text-overflow: ellipsis;
 }
 
@@ -15,6 +15,6 @@
         align-self: center;
         font-size: 14px;
         margin-right: 23px;
-        max-width: 190px;
+        width: 190px;
     }
 }
