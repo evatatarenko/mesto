@@ -17,7 +17,12 @@ export default class FormValidator {
         this._inputList.forEach((inputElement) => {
             this._hideError(inputElement)
         });
-        this._submitBtn.disabled = true;
+        this.switchSubmitBtnDisabled(true);
+    }
+
+    switchSubmitBtnDisabled(disabled) {
+        console.log('disabled')
+        this._submitBtn.disabled = disabled;
     }
 
     _hasInvalidInput() {

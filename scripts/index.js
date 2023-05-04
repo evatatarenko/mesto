@@ -31,10 +31,37 @@ const fullImageCaption = popupImage.querySelector('.image-popup__caption')
 
 const popupArray = document.querySelectorAll('.popup');
 
+const editForm = document.querySelector('.form-edit');
+const addForm = document.querySelector('.form-add');
+
 
 
 
 //open popup\\
+
+const validationParameters = {
+  formSelector: '.form',
+  inputSelector: '.form__text',
+  submitButtonSelector: '.form__submit-btn',
+  inactiveButtonClass: 'form__submit-btn_inactive',
+  inputErrorClass: 'form__text_type_error',
+  errorClass: 'form__input-error_active'
+}
+
+// const enableValidation = options => {
+//   const formList = Array.from(document.querySelectorAll(options.formSelector));
+//   formList.forEach((formElement) => {
+//     new FormValidator(validationParameters, formElement).enableValidation();
+//   });
+// };
+
+// enableValidation(validationParameters);
+
+const addFormValidator = new FormValidator(validationParameters, addForm);
+addFormValidator.enableValidation();
+const editFormValidator = new FormValidator(validationParameters, editForm);
+editFormValidator.enableValidation();
+
 
 const openPopup = popup => {
   document.addEventListener('keydown', handleKeyDown);
@@ -82,7 +109,9 @@ formProfile.addEventListener('submit', handleProfileFormSubmit);
 //newcard-popup\\
 
 const openNewcardPopup = () => {
+  console.log('open popup')
   openPopup(newcardPopup);
+  addFormValidator.switchSubmitBtnDisabled(true);
 }
 
 openNewcardPopupBtn.addEventListener('click', openNewcardPopup);
@@ -142,31 +171,7 @@ popupArray.forEach(popup => popup.addEventListener('mousedown', closePopupOverla
 const initialData = () => {
   initialCards.forEach(elem => {
     const card = createCard(elem, openPlaceImagePopup, '#element').generateCard();
-    console.log(card)
     cardContainer.prepend(card);
   })
 };
 initialData()
-
-
-
-const validationParameters = {
-  formSelector: '.form',
-  inputSelector: '.form__text',
-  submitButtonSelector: '.form__submit-btn',
-  inactiveButtonClass: 'form__submit-btn_inactive',
-  inputErrorClass: 'form__text_type_error',
-  errorClass: 'form__input-error_active'
-}
-
-const enableValidation = options => {
-  const formList = Array.from(document.querySelectorAll(options.formSelector));
-  formList.forEach((formElement) => {
-    new FormValidator(validationParameters, formElement).enableValidation();
-  });
-};
-
-
-enableValidation(validationParameters);
-
-
