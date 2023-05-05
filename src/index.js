@@ -1,5 +1,5 @@
-import Card from './card.js';
-import FormValidator from "./validator.js";
+import Card from './scripts/card.js';
+import FormValidator from "./scripts/validator.js";
 
 const editPopup = document.querySelector('.edit-popup');
 const newcardPopup = document.querySelector('.newcard');
