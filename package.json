@@ -1,7 +1,7 @@
 {
   "name": "mesto",
   "version": "1.0.0",
-  "description": "Проект выполнен вовремя прохождения курса \"Веб-разработчик\" от Яндекс.Практикума. Он рассказывает о интересных местах в России.",
+  "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development"
