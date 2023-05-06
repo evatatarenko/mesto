@@ -73,9 +73,9 @@ openPopupEditBtn.addEventListener("click", openpopupTypeEditProfile);
 openNewcardPopupBtn.addEventListener("click", openPopupTypeAddProfile);
 
 function openpopupTypeEditProfile() {
-  const userObject = user.getUserInfo();
-  nameInput.value = userObject.name;
-  jobInput.value = userObject.job;
+  const userData = user.getUserInfo();
+  nameInput.value = userData.name;
+  jobInput.value = userData.job;
 
   newPopupTypeEditProfile.open();
 }
