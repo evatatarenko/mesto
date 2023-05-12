@@ -13,11 +13,11 @@
     </header>
     <main class="content">
       <section class="profile">
-          <button class="profile__avatar-btn">
-            <div class="profile__avatar-vector"></div>
-        <img class="profile__avatar" src=<%=require("./images/kusto.jpg")%>
-        alt="Фото профиля">
-      </button>
+        <button class="profile__avatar-btn">
+          <div class="profile__avatar-vector"></div>
+          <img class="profile__avatar" />
+          alt="Фото профиля">
+        </button>
         <div class="profile__info">
           <h1 class="profile__title"></h1>
           <button
@@ -35,10 +35,10 @@
     </main>
     <div class="popup popup-avatar">
       <button
-          type="button"
-          class="popup__close-btn popup-avatar__close-btn"
-          aria-label="Закрыть"
-        ></button>
+        type="button"
+        class="popup__close-btn popup-avatar__close-btn"
+        aria-label="Закрыть"
+      ></button>
       <div class="popup__content">
         <form class="form form-avatar">
           <h2 class="popup__title popup-avatar__title">Обновить аватар</h2>
@@ -53,7 +53,9 @@
             />
             <span class="link-avatar-error form__input-error"></span>
           </div>
-          <button type="submit" class="form__submit-btn popup-avatar__btn">Сохранить</button>
+          <button type="submit" class="form__submit-btn popup-avatar__btn">
+            Сохранить
+          </button>
         </form>
       </div>
     </div>
@@ -174,9 +176,9 @@
         <div class="element__info">
           <h2 class="element__title"></h2>
           <div class="element__like-container">
-          <button type="button" class="element__like"></button>
-          <span class="element__count-like"></span>
-        </div>
+            <button type="button" class="element__like"></button>
+            <span class="element__count-like"></span>
+          </div>
         </div>
         <button type="button" class="element__remove-btn"></button>
       </li>

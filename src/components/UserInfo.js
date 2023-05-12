@@ -13,9 +13,8 @@ export default class UserInfo {
   }
 
   setUserInfo({ name, job, avatar }) {
-    console.log(name, job, avatar);
     this._name.textContent = name;
     this._job.textContent = job;
-    this._avatar.src = avatar;
+    avatar && (this._avatar.src = avatar);
   }
 }

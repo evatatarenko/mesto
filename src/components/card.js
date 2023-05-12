@@ -78,7 +78,7 @@ export default class Card {
   }
 
   _deleteCard() {
-    this._handleDeleteClick(this._id);
+    this._handleDeleteClick(this._id, this.cardRemove.bind(this));
   }
 
   cardRemove() {
