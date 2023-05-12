@@ -14,6 +14,7 @@ export const nameInput = document.querySelector(".form__text_type_name");
 export const jobInput = document.querySelector(".form__text_type_job");
 export const profileTitle = document.querySelector(".profile__title");
 export const profileSubtitle = document.querySelector(".profile__subtitle");
+export const profileAvatar = document.querySelector(".profile__avatar-btn");
 export const popupImage = document.querySelector(".image-popup");
 export const formNewCard = document.querySelector("#addform");
 
@@ -37,3 +38,4 @@ export const popupArray = document.querySelectorAll(".popup");
 
 export const editForm = document.querySelector(".form-edit");
 export const addForm = document.querySelector(".form-add");
+export const avatarForm = document.querySelector(".form-avatar");
